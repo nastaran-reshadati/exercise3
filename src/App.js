@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import CreateAllProduct from "./components/CreateAllProduct";
+import AddProducts from "./components/AddProducts";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+
+  const products = [
+    { type: "mobile iphone", price: 10000000, id: 1 },
+    { type: "laptop Dell", price: 16000000, id: 2 },
+  ];
+
+  // const [arr, setArr] = useState({arr : ''});
+
+  const allDatas = (argObj) => {
+    console.log(argObj);
+    products.push(argObj);
+    console.log("aaaa");
+    console.log(products);
+  };
+
+  console.log("bbb");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {products.map((product) => {
+        return <CreateAllProduct key={product.id} item={product} />;
+      })} 
+
+      <AddProducts parentFunc={allDatas} /> 
     </div>
   );
-}
+};
 
 export default App;

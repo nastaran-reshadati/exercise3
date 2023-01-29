@@ -16,8 +16,8 @@ const AddProducts = (props) => {
     <div>
       <div className="container">
         <div className="row">
-          <div className="w-50 mx-auto my-3">
-            <label className="my-1">نام محصول را وارد کنید : </label>
+          <div className="w-50 mx-auto">
+            <label className="my-1 mt-3">نام محصول را وارد کنید : </label>
             <input
               onChange={changeHandler}
               name="type"
@@ -39,9 +39,10 @@ const AddProducts = (props) => {
           </div>
           <button
           onSubmit={submitForm}
+          style={{backgroundColor :"#bd93f9"}}
             type="submit"
             onClick={() => props.parentFunc(inputData)}
-            className="btn btn-success"
+            className="btn"
           >
             Add
           </button>
